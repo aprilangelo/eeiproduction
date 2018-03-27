@@ -15,13 +15,13 @@
   function deactivateAccount($id){
           swal({
           title: "Deactivate this account?",
-          text: "You will not be able to undo the action.",
+          text: "This will set the user's account as inactive",
           icon: "warning",
           buttons: ["Cancel", "Deactivate"],
           dangerMode: true,
          })
-         .then((willDelete) => {
-          if (willDelete) {
+         .then((willDeactivate) => {
+          if (willDeactivate) {
           //get the input value
           $.ajax({
               //the url to send the data to
@@ -50,7 +50,7 @@
      function reactivateAccount($id){
              swal({
              title: "Reactivate this account?",
-             text: "",
+             text: "This will set the user's account as active.",
              icon: "warning",
              buttons: ["Cancel", "Reactivate"],
              dangerMode: true,
@@ -90,42 +90,44 @@
     <div class="col s12 m12 l12" id="content">
       <div class="main-content">
         <div class="col s12 m12 l12 table-header">
-          <span class="table-title">User Profile</span>
-          <input id="reactivate" class = "edit_profile" name="submit" type="submit" value="Edit Profile">
-          <input id="reactivate" class = "save_profile" name="submit" type="submit" value="Save Profile" hidden>
-
+          <span class="table-title">User Profile
+          </span>
           <?php
-          $db = mysqli_connect("localhost", "root", "", "eei_db");
-          $id = $_GET["id"];
+            $db = mysqli_connect("localhost", "root", "", "eei_db");
+            $id = $_GET["id"];
 
-          $query1 = "SELECT * from user_t where user_id = $id";
+            $query1 = "SELECT * from user_t where user_id = $id";
 
-          if (!mysqli_query($db, $query1))
-          {
-            die('Error' . mysqli_error($db));
-          }
+            if (!mysqli_query($db, $query1))
+            {
+              die('Error' . mysqli_error($db));
+            }
 
-          $result = mysqli_query($db, $query1);
-          $row=mysqli_fetch_array($result,MYSQLI_ASSOC);
+            $result = mysqli_query($db, $query1);
+            $row=mysqli_fetch_array($result,MYSQLI_ASSOC);
 
-          mysqli_close($db);
-
+            mysqli_close($db); ?>
+        <span class="row" id="ticket-actions">
+          <button id="reactivate" class = "btn orange-btn edit_profile" name="submit" type="submit">Edit Profile</button>
+          <button id="reactivate" class = "btn blue-btn save_profile" name="submit" type="submit" type="hidden">Save Profile</button>
+          <?php
           if($row['isActive'] == '0'){ ?>
-            <input disabled id="deactivated" name="submit" type="submit" value="Deactivated">
-            <input onclick="reactivateAccount(<?php echo $row['user_id']?>)" id="reactivate" name="submit" type="submit" value="Reactivate Account">
+            <button disabled id="deactivated" class="btn">Deactivated</button>
+            <button onclick="reactivateAccount(<?php echo $row['user_id']?>)" id="reactivate" class="btn blue-btn">Reactivate</button>
           <?php } else{
           ?>
-          <input onclick="deactivateAccount(<?php echo $row['user_id']?>)" id="deactivate" name="submit" type="submit" value="Deactivate Account">
-        <?php } ?>
-          <div class="col s12" id="breadcrumb">
-            <a href="manageUsers.php" class="breadcrumb">Manage Users</a>
-            <a href="#!" class="breadcrumb">User Profile</a>
-          </div>
+            <button onclick="deactivateAccount(<?php echo $row['user_id']?>)" id="deactivate" class="btn red-btn">Deactivate</button>
+          <?php } ?>
+        </span>
+        <div class="col s12" id="breadcrumb">
+          <a href="manageUsers.php" class="breadcrumb">Manage Users</a>
+          <a href="#!" class="breadcrumb">User Profile</a>
+        </div>
+
         </div>
         <div class="profile-body">
           <h4 class="body-header"><b><?php echo $row['first_name'] . ' ' . $row['last_name'] ?></b></h4>
           <h6 class="body-header" id="line2"><b><?php echo $row['user_type'] ?></b></h6>
-
               <table id="profile">
                 <tbody>
                   <tr>

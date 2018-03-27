@@ -52,7 +52,7 @@
             <thead>
               <tr>
                 <th>Requestor Name</th>
-                <th>User ID</th>
+                <th class="col-hideuserid">User ID</th>
                 <th>Email Address</th>
                 <th>User Type</th>
                 <th></th>
@@ -91,7 +91,7 @@
               ?>
                 <tr class='clickable-row' data-href="profile.php?id=<?php echo $row['user_id']?>">
                       <td class = 'user-row'> <?php echo $row['first_name'] . ' ' . $row['last_name']?>  </td>
-                      <td class = 'user-row'> <?php echo $row['userid']?>   </td>
+                      <td class = 'user-row col-hideuserid'> <?php echo $row['userid']?>   </td>
                       <td class = 'user-row'> <?php echo $row['email_address']?>  </td>
                       <td class = 'user-row'> <?php echo $row['user_type']?> </td>
                       <td class = 'user-row <?php echo $class ?>'></td>

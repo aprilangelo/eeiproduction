@@ -46,8 +46,8 @@ $(document).ready(function(){
 
 
   //Character Count Control for Ticket Title
-  var max = 40;
   $('.title').keypress(function(e) {
+    var max = 40;
         if (e.which < 0x20) {
             return;     // Do nothing
         }
@@ -58,9 +58,27 @@ $(document).ready(function(){
         }
     });
 
+    $('#rc_no').keypress(function(e) {
+      var max = 5;
+
+          if (e.which < 0x20) {
+              return;     // Do nothing
+          }
+          if (this.value.length == max) {
+              e.preventDefault();
+          } else if (this.value.length > max) {
+              this.value = this.value.substring(0, max);
+          }
+      });
+
   //Export Report to Excel
   $('#request-form-export').click(function(){
      window.location="php_processes/export.php";
+  });
+
+  $('#btn-cancel').click(function(e){
+    e.preventDefault();
+    window.location.reload();
   });
 
   //Hiding Red Notification Count on Bell Click
@@ -269,26 +287,6 @@ $(document).ready(function(){
     });
   });
 
-  //Deactivate Account
-  $('.user-row #deactivate').click(function(e){
-    e.stopPropagation();
-    $.ajax({
-      url: 'php_processes/delete-user.php',
-      type: 'POST',
-      data: $(this).serialize(),
-      success: function(data)
-       {
-         swal({
-            title: "Account deactivated" ,
-            text: "Name's account is now deactivated",
-            type: "success",
-            icon: "success"
-        }).then(function(){
-          location.reload();
-          });
-       }
-    })
-  });
 
   //Change pasdword
   $("#forgot-password").submit(function(e) {
@@ -862,36 +860,6 @@ $(document).ready(function(){
 
 });
 
-//edit-sla
-//var $old=[];
-//
-//$(".edit_sla").click(function(){
-//      var td = $(this).closest('td');
-//			var value = $(this).closest('tr').find('.information').attr('contenteditable','true');
-//			$(this).hide();
-//			$(this).closest('tr').find(".save_sla").show();
-//      $(this).closest('tr').find('.information').each(function(){
-//      $old.push($(this).text());
-//     })
-//
-//		})
-//$(".save_sla").click(function(){
-//  var value = $(this).closest('tr').find('.information').attr('contenteditable','false');
-//
-//			$(this).hide();
-//			$(".edit_sla").show();
-//			var $item=[];
-//			 $(this).closest('tr').find('.information').each(function(){
-//			 	$item.push($(this).text());
-//			 })
-//       $.ajax({
-//			      type: 'post',
-//			      url: 'php_processes/edit-sla.php',
-//			      data: {details: $item,old:$old},
-//			      });
-//            location.reload();
-//
-//					})
 //  edit-sla
  var $old=[];
 var $item=[];

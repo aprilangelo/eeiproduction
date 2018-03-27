@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel="shortcut icon" type="image/x-icon" href="img/eei-black.png" />
-    <title>EEI Service Desk</title>
+<link rel="shortcut icon" type="image/x-icon" href="https://www.eei.com.ph/img/favicon.ico" />
+<title>EEI Service Desk</title>
     <?php include 'templates/css_resources.php' ?>
   </head>
   <?php if(isset($_COOKIE['userid'])){ ?>
@@ -21,8 +21,11 @@
               </span>
             <form method="post">
                 <div class="input-field form-field login">
-                  <label for="userid" id="login">User ID</label>
-                  <input id="userid" name="userid" type="text" class="validate">
+                  <input id="userid" name="userid" type="text" class="validate" value="<?php
+                        if(isset($_COOKIE['remember_meuser'])) {
+                        echo $_COOKIE['remember_meuser'];
+                        } ?>">
+                <label for="userid" id="login">User Id</label>
                 </div>
                 <div class="input-field form-field login">
                   <label for="password" id="login">Password</label>
@@ -102,10 +105,10 @@
         setcookie('userid', $_POST['userid'], $hour, '/');
 
         $year = time() + 31536000;
-        if($_POST['remember']) {
+        if($_POST['remember_me']) {
             setcookie('remember_meuser', $_POST['userid'], $year);
             }
-            elseif(!$_POST['remember']) {
+            elseif(!$_POST['remember_me']) {
             	if(isset($_COOKIE['remember_me'])) {
             		$past = time() - 100;
             		setcookie(remember_me, gone, $past);

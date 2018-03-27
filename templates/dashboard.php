@@ -94,7 +94,7 @@
                           <p class='unassigned' id="sev">Unassigned</p>
                           <p id='sevlevel' class='no-margin'>For review </p>
                         </div>
-                        <?php $totalunassigned = "SELECT COUNT(*) as unassigned, (SELECT COUNT(*) FROM ticket_t t WHERE t.ticket_status >= 5 and t.ticket_status <=8) as totaltickets FROM ticket_t t WHERE t.severity_level IS NULL";
+                        <?php $totalunassigned = "SELECT COUNT(*) as unassigned, (SELECT COUNT(*) FROM ticket_t t WHERE t.ticket_status >= 5 and t.ticket_status <=8) as totaltickets FROM ticket_t t WHERE t.severity_level IS NULL AND t.ticket_status >= 5 and t.ticket_status <=8";
                         $result2 = mysqli_query($db,$totalunassigned);
                         while($row2 = mysqli_fetch_assoc($result2)){ ?>
 

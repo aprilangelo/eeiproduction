@@ -183,7 +183,7 @@ $(document).ready(function(){
               <div class="row" id="request-form-row4">
                 <div class="col s12">
                   <div class="input-field" id="request-form">
-                    <input class="tooltipped" data-position="left" data-delay="50" data-tooltip="5-digit Project Number" placeholder="Project Number" name="rc_no" type="number" required>
+                    <input class="tooltipped" data-position="left" data-delay="50" data-tooltip="5-digit Project Number" placeholder="Project Number" name="rc_no" type="number" id="rc_no" required>
                     <label for="rc_no">R.C. Number</label>
                   </div>
                 </div>
@@ -264,7 +264,7 @@ $(document).ready(function(){
 
           </div>  <!-- End of RIGHT column -->
           <div class="row" id="request-form-controls">
-            <input class="waves-effect waves-light" id="btn-cancel" name="cancel" type="submit" value="Cancel">
+            <input class="waves-effect waves-light" id="btn-cancel" name="submit" type="submit" value="Cancel">
             <input class="waves-effect waves-light" id="btn-submit" name="submit" type="submit" value="Submit">
           </div>
 

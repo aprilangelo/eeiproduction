@@ -44,7 +44,9 @@
                 <!-- Div for All Action Buttons -->
                 <span class="row" id="ticket-actions">
                   <?php if($row['ticket_status'] != 8 AND $row['user_id'] == $_SESSION['user_id']){?>
+                    <form>
                     <input id="attach" type="submit" class="modal-trigger" href="#attachfile" value="Attach File" />
+                    </form
                   <?php }?>
 
                   <!-- Confirm Resolution for Requestor  -->

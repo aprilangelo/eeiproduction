@@ -14,10 +14,19 @@ $result = mysqli_query($db, "SELECT it_group_manager_id,ticket_agent_id,ticket_n
 $row=mysqli_fetch_array($result,MYSQLI_ASSOC);
 if ($row['ticket_agent_id']!=NULL) {
   $personIC= $row['ticket_agent_id'];
+  $sql = "UPDATE ticket_t SET ticket_status = '6', auto_close_date = DEFAULT WHERE ticket_id = $ticketID";
 }
 else {
   $personIC= $row['it_group_manager_id'];
+  $sql = "UPDATE ticket_t SET ticket_status = '5', auto_close_date = DEFAULT WHERE ticket_id = $ticketID";
+
 }
+
+if (!mysqli_query($db, $sql))
+{
+  die('Error' . mysqli_error($db));
+}
+
 
 //nav notification
 $notifSql = "INSERT INTO notification_t (notification_id,ticket_id, user_id, notification_description, isRead, timestamp) VALUES(DEFAULT, $ticketID,'$personIC','Your ticket: $row[ticket_number] resolution has been rejected by user',0,now())";

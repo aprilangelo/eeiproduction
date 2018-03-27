@@ -274,7 +274,7 @@ div.all-notifs{
   -o-background-size: cover;
   background-size: cover;
   padding-top: 5%;
-
+  height: 100vh;
 }
 
 div#login{
@@ -359,6 +359,7 @@ div#controls {
 }
 button#login{
   background-color: #4b75ff;
+  border: none;
 }
 
 a#forgot-password{
@@ -454,7 +455,7 @@ a.user-name{
 
 div.profile-body{
   background-color: white;
-  padding: 20px 40px;
+  padding: 10px 30px;
 }
 span.type{
   font-size: 14px;
@@ -660,25 +661,16 @@ border-top: none;
   padding: 0px;
 }
 
-.btn{
-  box-shadow: none;
-  background-color: #4b75ff;
-  border-color: #4b75ff!important;
-  padding: 0 10px 0 10px;
-  border: 1px solid;
-  color: #ffffff;
-  text-transform: none;
-}
-
+/*
 .btn:hover{
   background-color: #4b75ff;
   color: white;
   padding: 0 10px 0 10px;
   border-color: #4b75ff;
   box-shadow: none;
-}
+} */
 a.service:hover, a.access:hover {
-    color: #212121!important;
+    color:white!important;
 }
 .dropdown-content li > a:hover{
   color: #212121!important;
@@ -1230,6 +1222,8 @@ font-size: 12px;
 
 div#request-form-controls {
   margin-top: 50px;
+  float: right;
+  margin-right: 10px;
 }
 #btn-cancel{
   padding: 8px 30px 8px 30px;
@@ -1541,12 +1535,18 @@ span.ticket_cat_regular {
 }
 
 h6#line2 {
+  padding: 0px 0px 15px 0px;
+  border-bottom: 2px solid lightgray;
   color: #c7c7c7;
-      font-weight: 400;
-      font-size: 16px;
-      text-transform: uppercase;
-      margin-bottom: 20px;
-      margin-left: 0px;
+  font-weight: 400;
+  font-size: 16px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  margin-left: 0px;
+  }
+
+  table#profile{
+    margin-top: -20px!important;
   }
 i#dashboard{
   float: right;
@@ -1639,16 +1639,16 @@ table#access-details td{
   padding: 5px;
 }
 
-div.material-table#manage table th:first-child, div.material-table#manage table td:first-child{
+ div.material-table#manage table th:first-child, div.material-table#manage table td:first-child{
   padding-left: 40px;
 }
-
+/*
 div.material-table#manage table th:first-child, div.material-table#manage table td:first-child{
   padding-left: 40px;
 }
 div.material-table#manage table th:last-child, div.material-table#manage table td:last-child{
   width: 10%;
-}
+} */
 /*
 div.material-table#manage table th:nth-child(2), div.material-table table td:nth-child(2){
   width: 10%;
@@ -2324,7 +2324,7 @@ div.header{
 }
 
 div.actions{
-  padding: 15px 24px 20px 35px;
+  padding: 10px 30px;
 }
 
 
@@ -2567,7 +2567,7 @@ input#deactivated{
   font-size: 12px;
   float: right;
   font-weight: 500;
-  margin-right: 35px;
+  margin-right: 10px;
   margin-top: 18px;
 }
 
@@ -2584,6 +2584,49 @@ input#reactivate {
     margin-top: 18px;
 }
 
+.row.profile-actions {
+    display: inline-flex;
+    margin-top: -21px;
+  }
+
+
+
+
+.btn, .btn:hover{
+  box-shadow: none;
+  padding: 0 10px 0 10px;
+  border: 1px solid;
+  color: #ffffff;
+  font-size: 14px;
+  margin: 15px 5px;
+  text-transform: none;
+}
+
+
+.save_profile{
+  display: none;
+}
+
+.red-btn, .red-btn:hover{
+  background-color: #F44336;
+  color: white;
+  border: 1px solid #c54239;
+  border-radius: 2px;
+}
+.blue-btn, .blue-btn:hover{
+  background-color: #4b75ff;
+  color: white;
+  border: 1px solid #3757bf;
+  border-radius: 2px;
+}
+
+.orange-btn, .orange-btn:hover{
+  background-color: #FFC107;
+  color: white;
+  border: 1px solid #e1ad0e;
+  border-radius: 2px;
+}
+
 input#deactivate {
     background-color: #F44336;
     color: white;
@@ -2593,7 +2636,7 @@ input#deactivate {
     font-size: 12px;
     float: right;
     font-weight: 500;
-    margin-right: 35px;
+    margin-right: 10px;
     margin-top: 18px;
 }
 

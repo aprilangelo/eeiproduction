@@ -7,6 +7,19 @@
   }
 }
 
+@media only screen and (max-width: 365px){
+
+
+  span#ticket-actions {
+    vertical-align: middle;
+    display: inline-flex;
+    margin-top: -20px;
+    margin-left: -5px;
+    margin-bottom: 10px!important;
+    float: none!important;
+  }
+}
+
 @media only screen and (max-width:400px){
   .modal-overlay{
     position: inherit!important;
@@ -64,6 +77,14 @@
 td#type{
   width: 12%!important;
 }
+td.col-sevcat#type{
+  padding-left: 10px!important;
+width: 15%!important;
+}
+
+td.col-ticketno{
+  width: 22%!important;
+}
 
 a#addfaq{
   display: none;
@@ -78,21 +99,17 @@ span#sub{
 }
 
 p.dashboard.no-margin{
-  font-size: 20px!important;
+  font-size: 18px!important;
 }
 
+h4#dashboard{
+  font-size: 20px!important;
+}
 
 td.col-title{
   width: 35%!important;
 }
 
-
-span#ticket-actions {
-    vertical-align: middle;
-    display: inline-flex;
-    margin-top: -30px;
-    float: none!important;
-}
 .btn-search{
   display: none!important;
 }
@@ -143,6 +160,9 @@ a.mobile-search{
     padding-left: 0px!important;
   }
 
+  .col-hideuserid{
+    display: none!important;
+  }
   .col-hidedatecreated{
     display: none;
   }
@@ -238,7 +258,6 @@ cursor: pointer;
 
 
   div#breadcrumb {
-    margin-top: -25px;
     padding-left: 0px!important;
     font-size: 12px!important;
     }
@@ -283,16 +302,20 @@ div#log{
     }
 
     div#form{
-      padding: 0px;
+      padding: 10px 0px;
     }
   div.result{
     width: inherit!important;
   }
 
+  span#sup, span#sub{
+    font-size: 20px!important;
+  }
+
   span.table-title{
     width: 375px!important;
     text-align: center!important;
-    font-size: 26px!important;
+    font-size: 20px!important;
     padding-left: 0px!important;
   }
 

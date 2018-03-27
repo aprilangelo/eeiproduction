@@ -115,19 +115,19 @@ if($checker!= NULL ){
       $w2 = $dt2day->format('N');
       if ($w2<6) {
         if (strtotime($time)>=strtotime('15:00:00')) {
-          $query1 = "INSERT INTO ticket_t (ticket_id, ticket_title, ticket_type, ticket_status, date_prepared, user_id) VALUES(DEFAULT, '$request_title', 'Service', '1', '$datet', '{$_SESSION['user_id']}')";
+          $query1 = "INSERT INTO ticket_t (ticket_id, ticket_title, ticket_type, ticket_status, date_prepared, user_id) VALUES(DEFAULT, '$request_title', 'User Access', '1', '$datet', '{$_SESSION['user_id']}')";
         }
 
         elseif(strtotime($time)<strtotime('08:00:00')) {
-          $query1 = "INSERT INTO ticket_t (ticket_id, ticket_title, ticket_type, ticket_status, date_prepared, user_id) VALUES(DEFAULT, '$request_title', 'Service', '1', '$dateToday', '{$_SESSION['user_id']}')";
+          $query1 = "INSERT INTO ticket_t (ticket_id, ticket_title, ticket_type, ticket_status, date_prepared, user_id) VALUES(DEFAULT, '$request_title', 'User Access', '1', '$dateToday', '{$_SESSION['user_id']}')";
         }
 
         else {
-          $query1 = "INSERT INTO ticket_t (ticket_id, ticket_title, ticket_type, ticket_status, date_prepared, user_id) VALUES(DEFAULT, '$request_title', 'Service', '1', '$curDate', '{$_SESSION['user_id']}')";
+          $query1 = "INSERT INTO ticket_t (ticket_id, ticket_title, ticket_type, ticket_status, date_prepared, user_id) VALUES(DEFAULT, '$request_title', 'User Access', '1', '$curDate', '{$_SESSION['user_id']}')";
         }
       }
       else {
-        $query1 = "INSERT INTO ticket_t (ticket_id, ticket_title, ticket_type, ticket_status, date_prepared, user_id) VALUES(DEFAULT, '$request_title', 'Service', '1', '$datet', '{$_SESSION['user_id']}')";
+        $query1 = "INSERT INTO ticket_t (ticket_id, ticket_title, ticket_type, ticket_status, date_prepared, user_id) VALUES(DEFAULT, '$request_title', 'User Access', '1', '$datet', '{$_SESSION['user_id']}')";
       }
 
       if (!mysqli_query($db, $query1))
