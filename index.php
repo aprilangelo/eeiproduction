@@ -17,7 +17,7 @@
               </div>
               <span class="card-title">
                 <img src="img/logo.png" class="login-logo">
-                <h5>EEI Corporation's Service Desk</h5>
+                <h5 id="login">EEI Corporation's Service Desk</h5>
               </span>
             <form method="post">
                 <div class="input-field form-field login">
